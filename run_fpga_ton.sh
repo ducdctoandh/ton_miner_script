@@ -1,0 +1,33 @@
+#!/bin/bash
+git clone https://github.com/aws/aws-fpga.git;
+cd aws-fpga;
+source sdk_setup.sh;
+sudo fpga-clear-local-image  -S 0;
+sudo fpga-load-local-image -S 0 -I agfi-0e747aca59e6ad293;
+sudo fpga-describe-local-image -S 0 -R -H;
+sudo fpga-clear-local-image  -S 1;
+sudo fpga-load-local-image -S 1 -I agfi-0e747aca59e6ad293;
+sudo fpga-describe-local-image -S 1 -R -H;
+sudo fpga-clear-local-image  -S 2;
+sudo fpga-load-local-image -S 2 -I agfi-0e747aca59e6ad293;
+sudo fpga-describe-local-image -S 2 -R -H;
+sudo fpga-clear-local-image  -S 3;
+sudo fpga-load-local-image -S 3 -I agfi-0e747aca59e6ad293;
+sudo fpga-describe-local-image -S 3 -R -H;
+sudo fpga-clear-local-image  -S 4;
+sudo fpga-load-local-image -S 4 -I agfi-0e747aca59e6ad293;
+sudo fpga-describe-local-image -S 4 -R -H;
+sudo fpga-clear-local-image  -S 5;
+sudo fpga-load-local-image -S 5 -I agfi-0e747aca59e6ad293;
+sudo fpga-describe-local-image -S 5 -R -H;
+sudo fpga-clear-local-image  -S 6;
+sudo fpga-load-local-image -S 6 -I agfi-0e747aca59e6ad293;
+sudo fpga-describe-local-image -S 6 -R -H;
+sudo fpga-clear-local-image  -S 7;
+sudo fpga-load-local-image -S 7 -I agfi-0e747aca59e6ad293;
+sudo fpga-describe-local-image -S 7 -R -H;
+cd;
+git clone https://github.com/ducdctoandh/ton_miner.git;
+cd ton_miner;
+sudo chmod +x *;
+sudo ./fpga_miner -a sha256d -o stratum+tcp://tcp.whalestonpool.com:4001 -u EQCsALvte5brZAyIg-XaZXsY8b3MWcbIzPbFCRsLRe3Oka4O -p x -F 8 &
